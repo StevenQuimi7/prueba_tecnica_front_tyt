@@ -1,0 +1,55 @@
+.contenedor-padre {
+  display: flex;
+  flex-direction: column;
+  
+}
+.filtro__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.formulario__btn-crear {
+  margin-left: auto;
+  border: 1px solid #e4e3e3;
+  background-color: #e4e3e3;
+  color: #797979;
+}
+
+.tabla--full-width th,
+.tabla--full-width td {
+  text-align: center;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.header-container
+{
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contenido{
+  margin-top:14px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.titulo-modulo{
+  color: #818080;
+}
+.subtitulo-modulo{
+  color: #434863;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.mat-form-field {
+  width: 250px;
+}

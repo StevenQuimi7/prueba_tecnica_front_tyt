@@ -1,0 +1,20 @@
+.dialog-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .dialog-icon {
+    font-size: 20px;
+  }
+  
+  .success-icon {
+    color: green;
+  }
+  
+  .error-icon {
+    color: red;
+  }
+  

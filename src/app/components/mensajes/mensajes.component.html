@@ -1,0 +1,9 @@
+<div mat-dialog-content class="dialog-content">
+    <mat-icon class="dialog-icon" [ngClass]="bandera ? 'success-icon' : 'error-icon'">
+      {{ bandera  ? 'check_circle' : 'warning' }}
+    </mat-icon>
+    <p>{{ mensaje }}</p>
+  </div>
+<div mat-dialog-actions align="end">
+    <button mat-button color="primary" mat-dialog-close>Aceptar</button>
+</div>

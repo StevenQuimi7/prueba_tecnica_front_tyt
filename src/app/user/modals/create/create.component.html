@@ -1,0 +1,155 @@
+<h2 mat-dialog-title>{{tituloModal}}</h2>
+
+<mat-dialog-content class="mat-typography">
+  <div [formGroup]="usuarioForm" class="contenedor-form">
+    <div class="form-row">
+      <div class="form-column">
+        <mat-form-field class="input-size">
+          <mat-label>Selecciona un Departamento</mat-label>
+          <mat-select
+            formControlName="idDepartamento"
+          >
+            <mat-option
+              *ngFor="let departamento of departamentos"
+              [value]="departamento.idDepartamento"
+              >{{ departamento.nombre }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-column">
+        <mat-form-field class="input-size">
+          <mat-label>Selecciona un Cargo</mat-label>
+          <mat-select
+             formControlName="idCargo"
+          >
+            <mat-option *ngFor="let cargo of cargos" [value]="cargo.idCargo">{{
+              cargo.nombre
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-column">
+        <mat-form-field class="input-size" appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input
+            type="text"
+            formControlName="usuario"
+            matInput
+            placeholder="Ingrese un nombre de usuario"
+          />
+          <mat-error *ngIf="usuarioForm.get('usuario')?.hasError('required')">
+            Campo obligatorio
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-column">
+        <mat-form-field class="input-size" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            formControlName="email"
+            matInput
+            placeholder="Ingrese un email"
+          />
+          <mat-error *ngIf="usuarioForm.get('email')?.hasError('required')">
+            Campo obligatorio
+          </mat-error>
+          <mat-error *ngIf="usuarioForm.get('email')?.hasError('email')">
+            Email no válido
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-column">
+        <mat-form-field class="input-size" appearance="outline">
+          <mat-label>Primer Nombre</mat-label>
+          <input
+            type="text"
+            formControlName="primerNombre"
+            matInput
+            placeholder="Ingrese primer nombre"
+          />
+          <mat-error
+            *ngIf="usuarioForm.get('primerNombre')?.hasError('required')"
+          >
+            Campo obligatorio
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-column">
+        <mat-form-field class="input-size" appearance="outline">
+          <mat-label>Segundo Nombre</mat-label>
+          <input
+            type="text"
+            formControlName="segundoNombre"
+            matInput
+            placeholder="Ingrese segundo nombre"
+          />
+          <mat-error
+            *ngIf="usuarioForm.get('segundoNombre')?.hasError('required')"
+          >
+            Campo obligatorio
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-column">
+        <mat-form-field class="input-size" appearance="outline">
+          <mat-label>Primer Apellido</mat-label>
+          <input
+            type="text"
+            formControlName="primerApellido"
+            matInput
+            placeholder="Ingrese primer apellido"
+          />
+          <mat-error
+            *ngIf="usuarioForm.get('primerApellido')?.hasError('required')"
+          >
+            Campo obligatorio
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-column">
+        <mat-form-field class="input-size" appearance="outline">
+          <mat-label>Segundo Apellido</mat-label>
+          <input
+            type="text"
+            formControlName="segundoApellido"
+            matInput
+            placeholder="Ingrese segundo apellido"
+          />
+          <mat-error
+            *ngIf="usuarioForm.get('segundoApellido')?.hasError('required')"
+          >
+            Campo obligatorio
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button
+    mat-raised-button
+    [disabled]="usuarioForm.invalid"
+    (click)="onSave()"
+    color="primary"
+  >
+    <span *ngIf="opcionModal === 'crear'; else actualizar">Registrar</span>
+    <ng-template #actualizar><span>Actualizar</span></ng-template>
+  </button>
+  
+  <button mat-raised-button mat-dialog-close cdkFocusInitial>Cancelar</button>
+</mat-dialog-actions>

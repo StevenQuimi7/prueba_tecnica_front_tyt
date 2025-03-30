@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{ titulo }}</h1>
+<div mat-dialog-content>
+  <p>{{ mensaje }}</p>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button color="primary" (click)="onConfirm()">Aceptar</button>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+</div>
